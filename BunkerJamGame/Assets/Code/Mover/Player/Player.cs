@@ -53,7 +53,7 @@ namespace JamGame
                 DieTime -= Time.deltaTime;
                 if(DieTime < 0.0f)
                 {
-                    SceneManager.LoadScene("DieScene");
+                    SceneManager.LoadScene("LoseScene");
                 }
             }
         }
@@ -154,16 +154,25 @@ namespace JamGame
 
         }
 
+        public bool m_bEazy = false;
         public void Hurt()
         {
+            if(m_bEazy)
+            {
+                return;
+            }
             this.m_FSM.SetState(new PlayerDieState(this));
         }
 
         public void Die()
         {
+            SFXPlayerManager.getInstance.CreateSFX("crush");
+
             ReadyDie = true;
             DieTime = 2.0f;
         }
+
+
 	}
 }
 

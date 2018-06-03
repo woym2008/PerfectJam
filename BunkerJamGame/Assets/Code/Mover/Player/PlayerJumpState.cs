@@ -20,6 +20,8 @@ namespace JamGame
 
             //跳跃会取消掉攻击
             m_Player.m_GirlFSM.SetState(new GirlWaitState(m_Player));
+
+            SFXPlayerManager.getInstance.CreateSFX("addspeed");
         }
 
         public void Exit()

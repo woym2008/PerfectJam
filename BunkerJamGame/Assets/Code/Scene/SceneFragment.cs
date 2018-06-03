@@ -36,6 +36,15 @@ namespace JamGame
 
 
             }
+
+            for (int i = 0; i < this.transform.childCount; ++i)
+            {
+                IGirlSkill skill = this.transform.GetChild(i).GetComponent<IGirlSkill>();
+                if (skill != null)
+                {
+                    skill.RemoveSelf();
+                }
+            }
 		}
 
 		private void OnDisable()

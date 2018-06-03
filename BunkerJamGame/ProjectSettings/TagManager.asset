@@ -10,6 +10,7 @@ TagManager:
   - EnemyBackCreateArea
   - Enemy
   - EnemyChain
+  - BossCreatePoint
   layers:
   - Default
   - TransparentFX

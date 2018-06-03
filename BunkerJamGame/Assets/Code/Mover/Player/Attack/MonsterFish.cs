@@ -123,7 +123,11 @@ namespace JamGame
             if (m_State == MonsterFishState.GrowAndJump && collision.gameObject.tag == "Enemy")
             {
                 EnemyBase pEnemy = collision.gameObject.GetComponent<EnemyBase>();
-                pEnemy.Hurt(5);
+                if (pEnemy != null)
+                {
+                    pEnemy.Hurt(5);
+                }
+
             }
 		}
 	}

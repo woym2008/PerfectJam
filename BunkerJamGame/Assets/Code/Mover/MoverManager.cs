@@ -33,6 +33,8 @@ namespace JamGame
 
         List<EnemyBase> m_LiveEnemy;
 
+        public Boss_1 m_Boss;
+
 		public void Start()
 		{
             //m_EnemyBases = new Stack<EnemyBase>();
@@ -52,6 +54,18 @@ namespace JamGame
             Player pPlayer = playerobj.GetComponent<Player>();
 
             return pPlayer;
+        }
+
+        public Boss_1 CreateBoss()
+        {
+            if(m_Boss != null)
+            {
+                m_Boss.gameObject.SetActive(true);
+
+                return m_Boss;
+            }
+
+            return null;
         }
 
         public EnemyBase CreateEnemy(EnemyType enemytype)

@@ -82,6 +82,16 @@ namespace JamGame
                     CurLevel++;
                 }
             }
+            else
+            {
+                Invoke("GameOverOver", 7.0f);
+
+            }
+        }
+
+        public void GameOverOver()
+        {
+            SceneManager.LoadScene("WinScene");
         }
 
         void CreateFirst()
@@ -106,13 +116,17 @@ namespace JamGame
 
         void CreateFragment()
         {
-            
-            List<SceneFragment> usefulfragment = new List<SceneFragment>();
-            for (int i = 0; i < m_Levels[CurLevel].m_curReadyFragments.Count; ++i)
+            int uselevel = CurLevel;
+            if(CurLevel >= m_Levels.Count)
             {
-                if(!m_Levels[CurLevel].m_curReadyFragments[i].gameObject.activeSelf)
+                uselevel = m_Levels.Count - 1;
+            }
+            List<SceneFragment> usefulfragment = new List<SceneFragment>();
+            for (int i = 0; i < m_Levels[uselevel].m_curReadyFragments.Count; ++i)
+            {
+                if(!m_Levels[uselevel].m_curReadyFragments[i].gameObject.activeSelf)
                 {
-                    usefulfragment.Add(m_Levels[CurLevel].m_curReadyFragments[i]);
+                    usefulfragment.Add(m_Levels[uselevel].m_curReadyFragments[i]);
                 }
             }
 

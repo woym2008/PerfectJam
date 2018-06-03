@@ -72,11 +72,19 @@ namespace JamGame
             {
                 this.m_State = BearState.Wait;
 
-                int count = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments.Count;
-                if (count > 0)
+                if(SceneFragmentManager.getInstance.CurLevel < SceneFragmentManager.getInstance.m_Levels.Count)
                 {
-                    this.transform.parent = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments[count - 1].transform;
-                } 
+                    int count = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments.Count;
+                    if (count > 0)
+                    {
+                        this.transform.parent = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments[count - 1].transform;
+                    }
+                }
+                else
+                {
+                    
+                }
+                 
             }
 
 
@@ -86,7 +94,11 @@ namespace JamGame
                 m_Anim.Play("Anim_Bear_Boom");
 
                 EnemyBase pEnemy = collision.gameObject.GetComponent<EnemyBase>();
-                pEnemy.Hurt(2);
+                if(pEnemy != null)
+                {
+                    pEnemy.Hurt(2);
+                }
+
             }
 		}
 	}

@@ -34,7 +34,7 @@ namespace JamGame
 
             m_Player.Move(Vector3.zero);
 
-            if (Input.GetKey(KeyCode.F))
+            if (Input.GetKey(KeyCode.J))
             {
                 m_Player.m_FSM.SetState(new PlayerJumpState(m_Player));
             }

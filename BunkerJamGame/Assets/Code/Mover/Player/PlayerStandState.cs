@@ -30,7 +30,7 @@ namespace JamGame
                 m_Player.m_FSM.SetState(new PlayerReduceMoveState(m_Player));
             }
 
-            if(Input.GetKeyDown(KeyCode.F))
+            if(Input.GetKeyDown(KeyCode.J))
             {
                 m_Player.m_FSM.SetState(new PlayerReadyJumpState(m_Player));
             }

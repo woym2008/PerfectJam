@@ -17,6 +17,7 @@ namespace JamGame
         public void Enter()
         {
             m_Player.m_Speed = m_Player.MaxSpeed;
+
         }
 
         public void Exit()
@@ -34,7 +35,7 @@ namespace JamGame
 
             m_Player.Move(Vector3.zero);
 
-            if(Input.GetKey(KeyCode.F))
+            if(Input.GetKey(KeyCode.J))
             {
                 m_Player.m_FSM.SetState(new PlayerReadyJumpState(m_Player));
             }

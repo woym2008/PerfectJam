@@ -38,6 +38,8 @@ namespace JamGame
             m_Anim = this.gameObject.GetComponent<Animator>();
 
             m_Anim.Play("Anim_Tear_Throw");
+
+            SFXPlayerManager.getInstance.CreateSFX("shoot");
         }
 
 		private void Update()

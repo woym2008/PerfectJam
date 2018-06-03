@@ -34,6 +34,8 @@ namespace JamGame
             //this.m_EnemyFSM.Clear();
             EffectManager.getInstance.CreateEffect(this.transform.position);
 
+            SFXPlayerManager.getInstance.CreateSFX("crush");
+
             MoverManager.getInstance.RemoveEnemy(this);
 		}
 

@@ -15,6 +15,7 @@ namespace JamGame
         public int NeedCrossFragment = 3;
 
         public bool NeedKillBoss = false;
+        public bool BossCreated = false;
 
         // Use this for initialization
         void Start()
