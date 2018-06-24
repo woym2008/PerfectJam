@@ -113,11 +113,15 @@ namespace JamGame
             {
                 ThrowOver();
 
-                int count = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments.Count;
-                if (count > 0)
+                if(SceneFragmentManager.getInstance.m_Levels.Count > SceneFragmentManager.getInstance.CurLevel)
                 {
-                    this.transform.parent = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments[count - 1].transform;
-                } 
+                    int count = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments.Count;
+                    if (count > 0)
+                    {
+                        this.transform.parent = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments[count - 1].transform;
+                    } 
+                }
+
             }
 
             if (m_State == MonsterFishState.GrowAndJump && collision.gameObject.tag == "Enemy")

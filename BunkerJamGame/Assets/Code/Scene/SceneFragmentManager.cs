@@ -177,6 +177,16 @@ namespace JamGame
 
             return null;
         }
+
+        public SceneFragment GetLastFragment()
+        {
+            if(m_curFragments.Count > 0)
+            {
+                return m_curFragments[m_curFragments.Count - 1];
+            }
+
+            return null;
+        }
     }
 }
 

@@ -75,9 +75,17 @@ namespace JamGame
                 if(SceneFragmentManager.getInstance.CurLevel < SceneFragmentManager.getInstance.m_Levels.Count)
                 {
                     int count = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments.Count;
-                    if (count > 0)
+
+                    SceneFragment lastsf = SceneFragmentManager.getInstance.GetLastFragment();
+
+                    if(lastsf ==null)
                     {
-                        this.transform.parent = SceneFragmentManager.getInstance.m_Levels[SceneFragmentManager.getInstance.CurLevel].m_curReadyFragments[count - 1].transform;
+                        this.m_State = BearState.Boom;
+                        m_Anim.Play("Anim_Bear_Boom");
+                    }
+                    else
+                    {
+                        this.transform.parent = lastsf.transform;
                     }
                 }
                 else
